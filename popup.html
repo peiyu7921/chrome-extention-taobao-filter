@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>关键词管理</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            align-items: center;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+
+        button {
+            padding: 5px;
+            background-color: #5392fc;
+            border: none;
+            color: white;
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<h2>管理关键词</h2>
+<ul id="keywords-list"></ul>
+<label for="keyword-input"></label><input id="keyword-input" placeholder="输入关键词" type="text">
+<button id="add-btn">添加关键词</button>
+<script src="popup.js"></script>
+</body>
+</html>

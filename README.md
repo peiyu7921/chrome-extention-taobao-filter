@@ -1,51 +1,58 @@
-# vue-web-extension
-淘宝商品过滤器
+# 淘宝过滤器 Chrome 扩展
 
-- Boilerplate for `manifest.json` and `background.js` files, and for `icons` / `popup` folders
-- [Vue](https://github.com/vuejs/vue)
-- [Webpack 4](https://github.com/webpack/webpack)
-- [Babel](https://github.com/babel/babel) with [preset-env](https://github.com/babel/babel/tree/master/packages/babel-preset-env)
-- [ESLint](https://github.com/eslint/eslint) (configurable)
-- A git precommit hook for running Prettier by using [pretty-quick](https://github.com/azz/pretty-quick) or [precise-commits](https://github.com/nrwl/precise-commits) (configurable)
-- CSS extraction, with [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin)
-- Compliable with the **C**ontent **S**ecurity **P**olicy of Chrome and Firefox web stores (some usages [`eval`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval) are removed)
+这个 Chrome 扩展允许用户在淘宝商品搜索页面中添加关键词，并自动隐藏包含这些关键词的商品。用户可以轻松管理过滤的关键词，并且页面上的商品列表会根据用户设定的关键词进行过滤。
 
-## Requirements
+## 功能
 
-- Node.js >= 8 and npm >= 5
-- [git](https://git-scm.com)
-- [vue-cli 2](https://github.com/vuejs/vue-cli/tree/v2)
+- **关键词过滤**：在淘宝商品搜索页面，自动隐藏包含用户添加的关键词的商品。
+- **动态更新**：页面加载时会自动过滤已有的商品，且在添加/删除关键词后立即更新页面。
+- **平滑动画效果**：在隐藏商品时使用 `width` 动画，确保视觉效果平滑。
 
-## Usage
+## 安装和使用
 
-```bash
-$ vue init kocal/vue-web-extension my-extension
-$ cd my-extension
-$ npm install
-$ npm run build
+1. 下载并解压扩展程序的文件。
+2. 打开 Chrome 浏览器，输入 `chrome://extensions/`，并开启开发者模式（右上角开关）。
+3. 点击 **加载已解压的扩展程序**，选择解压后的文件夹。
+4. 安装成功后，点击浏览器工具栏上的扩展图标，打开扩展的弹出界面，添加关键词进行商品过滤。
+
+## 文件结构
+
+```
+├── background.js # 后台脚本（如果需要）
+├── content.js # 内容脚本，负责过滤页面商品
+├── popup.html # 弹出界面的 HTML 文件
+├── popup.js # 弹出界面的脚本，处理关键词添加/删除
+├── manifest.json # 扩展的配置文件
+└── README.md # 本文件
 ```
 
-### `npm run build`
+## 关键词管理
 
-Build the extension into `dist` folder for **production**.
+### 添加关键词
 
-### `npm run build:dev`
+1. 打开扩展的弹出界面。
+2. 在输入框中输入要过滤的关键词，并点击 **添加** 按钮。
+3. 页面会自动刷新并过滤掉包含该关键词的商品。
 
-Build the extension into `dist` folder for **development**.
+### 删除关键词
 
-### `npm run watch`
+每个关键词旁边都有一个删除按钮，点击按钮可以删除该关键词并立即更新页面。
 
-Watch for modifications then run `npm run build`.
+## 技术栈
 
-### `npm run watch:dev`
+- **Chrome 扩展 API**：用于创建扩展程序和与浏览器交互。
+- **JavaScript**：用于编写内容脚本和弹出界面的逻辑。
+- **CSS**：用于设置动画效果，使元素的显示/隐藏平滑过渡。
 
-Watch for modifications then run `npm run build:dev`.
+## 问题与反馈
 
-It also enable [Hot Module Reloading](https://webpack.js.org/concepts/hot-module-replacement), thanks to [webpack-extension-reloader](https://github.com/rubenspgcavalcante/webpack-extension-reloader) plugin.
+如果你遇到任何问题，或者有任何建议，欢迎在 [GitHub Issues](https://github.com/your-repo/issues) 中提交问题。
 
-:warning: Keep in mind that HMR only works for your **background** entry.
+## 许可证
 
-### `npm run build-zip`
+本项目采用 [MIT License](LICENSE) 许可证，详情请见 LICENSE 文件。
 
-Build a zip file following this format `<name>-v<version>.zip`, by reading `name` and `version` from `manifest.json` file.
-Zip file is located in `dist-zip` folder.
+```
+
+这段 Markdown 代码包括了扩展的功能说明、安装使用方法、文件结构、关键词管理、技术栈、问题反馈等内容，适用于 GitHub
+等平台。如果需要修改链接或者文件内容，可以根据实际情况进行调整。

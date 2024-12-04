@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "淘宝过滤器",
+  "description": "删除包含特定关键词的宝贝元素",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://s.taobao.com/search*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "host_permissions": [
+    "https://s.taobao.com/*"
+  ]
+}
